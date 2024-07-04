@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Introduction to Software Development</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta property="og:title" content="Introduction to Software Development" />
+  <meta property="og:description" content="A webpage to demonstrate HTML in software development" />
+  <meta property="og:image"
+    content="https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/310966404_125523523617901_4632007960106440474_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=174925&_nc_ohc=otK7sYT-CbQAX__T18k&_nc_ht=scontent-man2-1.xx&oh=00_AfDAvqqcHZ71fqHom68k_D5l9Attvk120Ipm-1rO3SGc4g&oe=64A5D265" />
+  <meta property="og:image:width" content="400" />
+  <meta property="og:image:height" content="400" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    body {
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('./photos/240_F_589153575_HHl7ilalywWNB6RDbjrF0jJB2AHxz2UP (1).jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      animation: animateBackground 20s linear infinite;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      line-height: 10px;
+    }
+
+    .main-content {
+      text-align: center;
+      line-height: 15px;
+      margin-top: 15%;
+      color: aliceblue;
+    }
+
+    .main-content-1 {
+      text-align: center;
+      line-height: 15px;
+      margin-top: 5%;
+      font-size: xx-large;
+      color: aliceblue;
+    }
+
+    .profile-picture {
+      width: 200px;
+      height: 200px;
+      border-radius: 100%;
+      position: relative;
+      animation: flyInFromLeft 2s ease-out forwards;
+    }
+
+    .position {
+      color: aliceblue;
+    }
+
+    .graduate {
+      color: aliceblue;
+    }
+
+    p {
+      font-size: 12px;
+    }
+
+    .links {
+      outline: none;
+      text-decoration: none;
+      text-align: center;
+      font-size: medium;
+      display: block;
+      color: aliceblue;
+    }
+
+    .Goals {
+      text-align: center;
+      margin: 0 auto;
+      width: 50%;
+      color: aliceblue;
+    }
+
+    .Goals header {
+      font-size: 1.5em;
+      color: aliceblue;
+    }
+
+    .Goals ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .Goals li {
+      margin-bottom: 10px;
+    }
+
+    @keyframes flyInFromLeft {
+      0% {
+        left: -100%;
+        opacity: 0;
+      }
+
+      100% {
+        left: 0;
+        opacity: 1;
+      }
+    }
+
+    @keyframes animateBackground {
+      0% {
+        background-position: center;
+      }
+
+      50% {
+        background-position: center top;
+      }
+
+      100% {
+        background-position: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-content">
+    <img src="./photos/sukuna.jpeg" class="profile-picture" data-testid="slackProfilePicture" />
+    <h1 data-testid="slackDisplayName">Mustapha Al-ameen</h1>
+    <h5 class="position" data-testid="slackEmail">Email: ameen13795@gmail.com</h5>
+    <h5 data-testid="currentTimeUTC"></h5>
+    <h5 data-testid="currentDay"></h5>
+  </div> <br>
+  <div class="Goals">
+    <header>Goals</header>
+    <ul>
+      <li>Master the use of CSS to dezign ad decorate to make a web more pleasing</li>
+      <li>Learn how to make use of JavaScript succesfully</li>
+      <li>Make use of this to further gauge my skill and the skill gap in my work</li>
+    </ul>
+  </div> <br>
+  <div>
+    <header class="main-content-1">link to other tabs</header> <br>
+    <a class="links" href="https://hng.tech/learn" data-testid="hngLink">HNG</a> <br>
+    <a class="links" href="https://keyword.dog" data-testid="keywordLink">keyword</a> <br>
+    <a class="links" href="https://scrapeanyweb.site" data-testid="scrapeanywebLink">scrapeanyweb</a>
+  </div>
+
+  <script>
+    function updateTimeAndDay() {
+      const now = new Date();
+      const utcTime = now.toUTCString().split(' ')[4];
+      const dayOfWeek = now.toLocaleDateString('en-US', { weekday: 'long' });
+
+      document.querySelector('[data-testid="currentTimeUTC"]').textContent = `Current Time in UTC: ${utcTime}`;
+      document.querySelector('[data-testid="currentDay"]').textContent = `Current Day: ${dayOfWeek}`;
+    }
+
+    updateTimeAndDay();
+    setInterval(updateTimeAndDay, 1000); // Update every second
+  </script>
+</body>
+
+</html>
